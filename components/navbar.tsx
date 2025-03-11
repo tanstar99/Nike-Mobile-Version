@@ -54,9 +54,11 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center nav-item">
          <img
+      
           src="/nikeLogo.png"
           alt="Nike Logo"
-           className="w-14 h-14 object-contain bg-transparent transition-transform duration-300 hover:scale-110"
+          id="main-logo"
+           className="w-14 h-14 object-contain bg-transparent transition-transform duration-300 hover:scale-110 filter "
            />   
           </Link>
 

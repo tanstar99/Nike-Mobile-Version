@@ -4,7 +4,7 @@ import { Suspense, useRef, useEffect } from "react";
 
 function ShoeModel() {
   const { scene } = useGLTF("/shoe_model.glb");
-  return <primitive object={scene} scale={[1.7, 1.7, 1.7]} position={[0.1, 0.2, -0.3]} />;
+  return <primitive object={scene} scale={[1.7, 1.7, 1.7]} position={[0.1, 0.2, -0.4]} />;
 }
 
 export default function Shoe3DModel() {
@@ -52,7 +52,7 @@ export default function Shoe3DModel() {
 
   return (
     <div className="w-[1000px] h-[1000px] aspect-auto overflow-hidden flex items-center justify-center">
-      <Canvas camera={{ position: [0, 1, 4] }} style={{ height: "1000px", width: "1000px", position: "absolute" }}>
+      <Canvas camera={{ position: [0, 1, 4] }} style={{ height: "1000px", width: "1000px", position: "absolute" ,transform: 'translateX(60px)'}}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[2, 2, 2]} />
         <Suspense fallback={null}>
@@ -62,7 +62,7 @@ export default function Shoe3DModel() {
           ref={orbitControlsRef}
           enableZoom={false}
           autoRotate // Enable auto-rotation
-          autoRotateSpeed={2} // Adjust rotation speed
+          autoRotateSpeed={8} // Adjust rotation speed
         />
       </Canvas>
     </div>
