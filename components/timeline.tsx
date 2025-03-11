@@ -52,7 +52,6 @@ export default function Timeline() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    // Title animation
     gsap.fromTo(
       ".timeline-title",
       { y: 50, opacity: 0 },
@@ -68,9 +67,7 @@ export default function Timeline() {
       },
     )
 
-    // Timeline animation
     if (timelineRef.current) {
-      // Animate the line
       gsap.fromTo(
         ".timeline-line",
         { scaleY: 0 },
@@ -85,7 +82,6 @@ export default function Timeline() {
         },
       )
 
-      // Animate each timeline item
       gsap.utils.toArray(".timeline-item").forEach((item: any, i) => {
         const direction = i % 2 === 0 ? -1 : 1
 
@@ -115,66 +111,59 @@ export default function Timeline() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-20 bg-black">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="timeline-title text-3xl md:text-4xl font-bold mb-2 text-white">The Nike Journey</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+    <section ref={sectionRef} className="py-24 bg-black">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-20">
+          <h2 className="timeline-title text-4xl font-extrabold mb-4 text-white">The Nike Journey</h2>
+          <p className="text-gray-400 max-w-3xl mx-auto text-lg">
             From humble beginnings to global icon, explore the key moments that shaped Nike's legendary history.
           </p>
         </div>
 
         <div ref={timelineRef} className="relative">
-          {/* Timeline center line */}
           <div className="timeline-line absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-red-600 to-red-900 h-full origin-top"></div>
 
-          {/* Timeline items */}
-          <div className="relative z-10">
+          <div className="relative z-10 space-y-20">
             {timelineData.map((item, index) => (
               <div
                 key={index}
-                className={`timeline-item flex flex-col md:flex-row items-center md:items-start gap-8 mb-16 ${
+                className={`timeline-item flex flex-col md:flex-row items-center gap-12 ${
                   index % 2 === 0 ? "md:flex-row-reverse" : ""
                 }`}
               >
-                <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-                  <div
-                    className={`relative w-full max-w-md overflow-hidden rounded-xl shadow-[0_0_20px_rgba(255,0,0,0.2)] ${
-                      index % 2 === 0 ? "md:mr-8" : "md:ml-8"
-                    }`}
-                  >
+                <div className="w-full md:w-1/2 flex justify-center">
+                  <div className="relative w-full max-w-md overflow-hidden rounded-2xl shadow-[0_0_20px_rgba(255,0,0,0.2)] transition-all duration-500 hover:scale-[1.05]">
                     <Image
                       src={item.image || "/placeholder.svg"}
                       alt={item.title}
                       width={600}
                       height={400}
-                      className="w-full h-auto object-cover transform hover:scale-110 transition-transform duration-700"
+                      className="w-full h-auto object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 p-4">
-                      <span className="inline-block bg-red-600 text-white text-xl font-bold px-3 py-1 rounded">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div className="absolute bottom-3 left-3">
+                      <span className="inline-block bg-red-600 text-white text-lg font-bold px-4 py-1 rounded-lg shadow-lg">
                         {item.year}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="w-full md:w-1/2 flex justify-center md:justify-start">
-                  <div className={`bg-gray-900 p-6 rounded-xl max-w-md ${index % 2 === 0 ? "md:ml-8" : "md:mr-8"}`}>
-                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                    <p className="text-gray-400">{item.description}</p>
+                <div className="w-full md:w-1/2 flex justify-center">
+                  <div className="bg-gray-900 p-8 rounded-2xl max-w-lg text-center md:text-left">
+                    <h3 className="text-2xl font-bold text-white mb-3">{item.title}</h3>
+                    <p className="text-gray-300 text-lg">{item.description}</p>
                   </div>
                 </div>
 
-                {/* Timeline dot */}
-                <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-red-600 rounded-full border-4 border-black"></div>
+                <div className="absolute left-1/2 top-[50%] transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-red-600 rounded-full border-4 border-black shadow-md"></div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="text-center mt-12">
-          <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white">
+        <div className="text-center mt-16">
+          <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full text-lg shadow-lg">
             Explore Our Full History
           </Button>
         </div>
@@ -182,4 +171,3 @@ export default function Timeline() {
     </section>
   )
 }
-

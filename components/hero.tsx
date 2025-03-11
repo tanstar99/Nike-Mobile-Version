@@ -92,8 +92,8 @@ export default function Hero() {
           BREAK BOUNDARIES
         </h2>
         <h1 className="text-6xl md:text-8xl font-bold mb-4 text-white text-center">
-  <div className="text-9xl " >JUST</div>
-  <div><span className="text-red-600">DO</span> IT</div>
+  <div >JUST</div>
+  <div  className="text-9xl "><span className="text-red-600">DO</span> IT</div>
 </h1>
 
       </div>

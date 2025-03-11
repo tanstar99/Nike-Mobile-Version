@@ -113,7 +113,6 @@ export default function Innovation() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-sm font-medium uppercase tracking-wider mb-3 text-red-500">Nike Innovation</h2>
           <h3 ref={titleRef} className="text-4xl md:text-6xl font-bold mb-6">
             <span className="title-word inline-block">REVOLUTIONIZING</span>{" "}
             <span className="title-word inline-block">PERFORMANCE</span>

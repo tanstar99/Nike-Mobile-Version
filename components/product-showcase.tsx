@@ -23,10 +23,10 @@ export default function ProductShowcase() {
 
   // Define color options and corresponding GLB models
   const colors = [
-    { name: "Infrared", hex: "#ff0000", model: "/blue_shoe.glb" },
-    { name: "Obsidian", hex: "#152238", model: "/bw_shoe.glb" },
-    { name: "Volt", hex: "#bfff00", model: "/green_shoe.glb" },
-    { name: "Platinum", hex: "#e5e5e5", model: "/pink_shoe.glb" },
+    { name: "Blue", hex: "#4287f5", model: "/blue_shoe.glb" },
+    { name: "Black and white", hex: "#FFFFFF", model: "/bw_shoe.glb" },
+    { name: "Green", hex: "#3dcc21", model: "/green_shoe.glb" },
+    { name: "White and Pink", hex: "#f291d7", model: "/pink_shoe.glb" },
   ]
 
   useEffect(() => {
