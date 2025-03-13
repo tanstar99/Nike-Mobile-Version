@@ -35,7 +35,6 @@ export default function Hero() {
         "-=1",
       )
 
-    // Parallax effect on scroll
     if (heroRef.current && textRef.current && imageRef.current) {
       gsap.to(".hero-parallax", {
         yPercent: 30,
